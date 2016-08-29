@@ -9,5 +9,9 @@
 import UIKit
 
 extension String {
-
+    /// Basic Scoring Functions
+    static func ratio(str1 str1: String, str2: String) -> Int {
+        let m = StringMatcher(str1: str1, str2: str2)
+        return Int(m.ratio() * 100)
+    }
 }

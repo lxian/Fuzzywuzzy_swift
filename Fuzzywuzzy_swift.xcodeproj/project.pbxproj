@@ -12,6 +12,8 @@
 		3078FD591D74959A0028F477 /* Fuzzywuzzy_swiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3078FD581D74959A0028F477 /* Fuzzywuzzy_swiftTests.swift */; };
 		3078FD641D7495B80028F477 /* LevenshteinDistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3078FD631D7495B80028F477 /* LevenshteinDistance.swift */; };
 		3078FD661D7495D20028F477 /* String_Fuzzywuzzy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3078FD651D7495D20028F477 /* String_Fuzzywuzzy.swift */; };
+		3078FD681D74AF5D0028F477 /* StringMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3078FD671D74AF5D0028F477 /* StringMatcher.swift */; };
+		3078FD6A1D74B3FE0028F477 /* CommonSubstrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3078FD691D74B3FE0028F477 /* CommonSubstrings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +35,8 @@
 		3078FD5A1D74959A0028F477 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3078FD631D7495B80028F477 /* LevenshteinDistance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevenshteinDistance.swift; sourceTree = "<group>"; };
 		3078FD651D7495D20028F477 /* String_Fuzzywuzzy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String_Fuzzywuzzy.swift; sourceTree = "<group>"; };
+		3078FD671D74AF5D0028F477 /* StringMatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringMatcher.swift; sourceTree = "<group>"; };
+		3078FD691D74B3FE0028F477 /* CommonSubstrings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonSubstrings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +83,8 @@
 				3078FD4E1D74959A0028F477 /* Info.plist */,
 				3078FD631D7495B80028F477 /* LevenshteinDistance.swift */,
 				3078FD651D7495D20028F477 /* String_Fuzzywuzzy.swift */,
+				3078FD671D74AF5D0028F477 /* StringMatcher.swift */,
+				3078FD691D74B3FE0028F477 /* CommonSubstrings.swift */,
 			);
 			path = Fuzzywuzzy_swift;
 			sourceTree = "<group>";
@@ -202,6 +208,8 @@
 			files = (
 				3078FD641D7495B80028F477 /* LevenshteinDistance.swift in Sources */,
 				3078FD661D7495D20028F477 /* String_Fuzzywuzzy.swift in Sources */,
+				3078FD6A1D74B3FE0028F477 /* CommonSubstrings.swift in Sources */,
+				3078FD681D74AF5D0028F477 /* StringMatcher.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

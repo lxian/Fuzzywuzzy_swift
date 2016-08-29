@@ -15,10 +15,8 @@ class LevenshteinDistance: NSObject {
         let charArr2 = Array(str2.characters)
         
         /// handle empty string cases
-        if charArr1.count == 0 {
-            return charArr2.count
-        } else if charArr2.count == 0 {
-            return charArr1.count
+        if charArr1.count == 0 || charArr2.count == 0 {
+            return charArr1.count + charArr2.count
         }
         
         /// create the cost matrix
