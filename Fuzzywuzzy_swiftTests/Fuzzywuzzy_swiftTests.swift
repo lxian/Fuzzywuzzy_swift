@@ -21,6 +21,16 @@ class Fuzzywuzzy_swiftTests: XCTestCase {
         super.tearDown()
     }
     
+    func testpartialRatio() {
+        let strPairs = [("some", ""), ("", "some"), ("", ""), ("abcd", "XXXbcdeEEE"), ("what a wonderful 世界", "wonderful 世"), ("this is a test", "this is a test!")]
+        for (str1, str2) in strPairs {
+            print("STR1: \(str1)")
+            print("STR2: \(str2)")
+            print("PARTIO RATIO: \(String.partialRatio(str1: str1, str2: str2))")
+            print("-----------------")
+        }
+    }
+    
     func testCommonSubstrings() {
         let strPairs = [("some", ""), ("", "some"), ("", ""), ("aaabbcde", "abbdbcdaabde"), ("abcdef", "abcdef")]
         for (str1, str2) in strPairs {

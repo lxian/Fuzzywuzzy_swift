@@ -11,6 +11,7 @@ import UIKit
 struct CommonSubstringPair {
     let str1SubRange: Range<String.Index>
     let str2SubRange: Range<String.Index>
+    let len: Int
 }
 
 class CommonSubstrings: NSObject {
@@ -50,7 +51,7 @@ class CommonSubstrings: NSObject {
                     
                     let sub1Range = Range(str1.startIndex.advancedBy(i-1)...str1.startIndex.advancedBy(i-1+len-1))
                     let sub2Range = Range(str2.startIndex.advancedBy(j-1)...str2.startIndex.advancedBy(j-1+len-1))
-                    pairs.append(CommonSubstringPair.init(str1SubRange: sub1Range, str2SubRange: sub2Range))
+                    pairs.append(CommonSubstringPair.init(str1SubRange: sub1Range, str2SubRange: sub2Range, len: len))
                 }
             }
         }
