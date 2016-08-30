@@ -8,20 +8,20 @@
 
 import UIKit
 
-public class StringMatcher: NSObject {
+class StringMatcher: NSObject {
     let str1: String
     let str2: String
     
-    public lazy var levenshteinDistance: Int = LevenshteinDistance.distance(str1: self.str1, str2: self.str2)
-    public lazy var commonSubStringPairs: [CommonSubstringPair] = CommonSubstrings.pairs(str1: self.str1, str2: self.str2)
+    lazy var levenshteinDistance: Int = LevenshteinDistance.distance(str1: self.str1, str2: self.str2)
+    lazy var commonSubStringPairs: [CommonSubstringPair] = CommonSubstrings.pairs(str1: self.str1, str2: self.str2)
     
-    public init(str1: String, str2: String) {
+    init(str1: String, str2: String) {
         self.str1 = str1
         self.str2 = str2
         super.init()
     }
     
-    public func fuzzRatio() -> Float {
+    func fuzzRatio() -> Float {
         let lenSum = (str1.characters.count + str2.characters.count)
         if lenSum == 0 { return 1 }
         return Float(lenSum - levenshteinDistance) / Float(lenSum)

@@ -8,15 +8,15 @@
 
 import UIKit
 
-public struct CommonSubstringPair {
+struct CommonSubstringPair {
     let str1SubRange: Range<String.Index>
     let str2SubRange: Range<String.Index>
     let len: Int
 }
 
-public class CommonSubstrings: NSObject {
+class CommonSubstrings: NSObject {
     /// get all pairs of common substrings
-    public class func pairs(str1 str1: String, str2: String) -> [CommonSubstringPair] {
+    class func pairs(str1 str1: String, str2: String) -> [CommonSubstringPair] {
         /// convert String to array of Characters
         let charArr1 = Array(str1.characters)
         let charArr2 = Array(str2.characters)
