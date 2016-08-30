@@ -10,13 +10,13 @@ import UIKit
 
 public extension String {
     /// Basic Scoring Functions
-    static public func ratio(str1 str1: String, str2: String) -> Int {
+    static public func fuzzRatio(str1 str1: String, str2: String) -> Int {
         let m = StringMatcher(str1: str1, str2: str2)
-        return Int(m.ratio() * 100)
+        return Int(m.fuzzRatio() * 100)
     }
     
     /// trys to match the shorter string with the most common substring of the longer one
-    static public func partialRatio(str1 str1: String, str2: String) -> Int {
+    static public func fuzzPartialRatio(str1 str1: String, str2: String) -> Int {
         let shorter: String
         let longer: String
         if str1.characters.count < str2.characters.count {
@@ -44,7 +44,7 @@ public extension String {
             let longSubEnd   = longSubStart.advancedBy(shorter.characters.count-1)
             
             let longSubStr = longer.substringWithRange(Range(longSubStart...longSubEnd))
-            let r = StringMatcher(str1: shorter, str2: longSubStr).ratio()
+            let r = StringMatcher(str1: shorter, str2: longSubStr).fuzzRatio()
             if r > 0.995 { /// magic number appears in original python code
                 return 1
             } else {

@@ -21,7 +21,7 @@ public class StringMatcher: NSObject {
         super.init()
     }
     
-    public func ratio() -> Float {
+    public func fuzzRatio() -> Float {
         let lenSum = (str1.characters.count + str2.characters.count)
         if lenSum == 0 { return 1 }
         return Float(lenSum - levenshteinDistance) / Float(lenSum)

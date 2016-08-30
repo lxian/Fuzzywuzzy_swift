@@ -26,7 +26,7 @@ class Fuzzywuzzy_swiftTests: XCTestCase {
         for (str1, str2) in strPairs {
             print("STR1: \(str1)")
             print("STR2: \(str2)")
-            print("PARTIO RATIO: \(String.partialRatio(str1: str1, str2: str2))")
+            print("PARTIO RATIO: \(String.fuzzPartialRatio(str1: str1, str2: str2))")
             print("-----------------")
         }
     }
@@ -50,7 +50,7 @@ class Fuzzywuzzy_swiftTests: XCTestCase {
         let strPairs = [("some", ""), ("", "some"), ("", ""), ("我好hungry", "我好饿啊啊啊啊"), ("我好饿啊啊啊啊", "好烦啊")]
         for (str1, str2) in strPairs {
             let matcher = StringMatcher(str1: str1, str2: str2)
-            let ratio = matcher.ratio()
+            let ratio = matcher.fuzzRatio()
             XCTAssert(ratio <= 1 && ratio >= 0)
             print("STR1: \(str1)")
             print("STR2: \(str2)")
