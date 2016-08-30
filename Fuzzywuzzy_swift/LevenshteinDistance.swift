@@ -8,8 +8,8 @@
 
 import UIKit
 
-class LevenshteinDistance: NSObject {
-    class func distance(str1 str1: String, str2: String) -> Int {
+public class LevenshteinDistance: NSObject {
+    public class func distance(str1 str1: String, str2: String) -> Int {
         /// convert String to array of Characters
         let charArr1 = Array(str1.characters)
         let charArr2 = Array(str2.characters)

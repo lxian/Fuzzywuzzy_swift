@@ -8,15 +8,15 @@
 
 import UIKit
 
-extension String {
+public extension String {
     /// Basic Scoring Functions
-    static func ratio(str1 str1: String, str2: String) -> Int {
+    static public func ratio(str1 str1: String, str2: String) -> Int {
         let m = StringMatcher(str1: str1, str2: str2)
         return Int(m.ratio() * 100)
     }
     
     /// trys to match the shorter string with the most common substring of the longer one
-    static func partialRatio(str1 str1: String, str2: String) -> Int {
+    static public func partialRatio(str1 str1: String, str2: String) -> Int {
         let shorter: String
         let longer: String
         if str1.characters.count < str2.characters.count {
