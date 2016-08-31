@@ -21,7 +21,17 @@ class Fuzzywuzzy_swiftTests: XCTestCase {
         super.tearDown()
     }
     
-    func testpartialRatio() {
+    func testTokenSortRatio() {
+        let strPairs = [("some", ""), ("", "some"), ("", ""), ("fuzzy wuzzy was a bear", "wuzzy fuzzy was a bear"), ("fuzzy$*#&)$#(wuzzy*@()#*()!<><>was a bear", "wuzzy fuzzy was a bear")]
+        for (str1, str2) in strPairs {
+            print("STR1: \(str1)")
+            print("STR2: \(str2)")
+            print("TOKEN RATIO: \(String.fuzzTokenSortRatio(str1: str1, str2: str2))")
+            print("-----------------")
+        }
+    }
+    
+    func testPartialRatio() {
         let strPairs = [("some", ""), ("", "some"), ("", ""), ("abcd", "XXXbcdeEEE"), ("what a wonderful 世界", "wonderful 世"), ("this is a test", "this is a test!")]
         for (str1, str2) in strPairs {
             print("STR1: \(str1)")

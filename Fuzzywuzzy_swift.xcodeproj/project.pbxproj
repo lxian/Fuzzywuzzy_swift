@@ -14,6 +14,7 @@
 		3078FD661D7495D20028F477 /* String_Fuzzywuzzy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3078FD651D7495D20028F477 /* String_Fuzzywuzzy.swift */; };
 		3078FD681D74AF5D0028F477 /* StringMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3078FD671D74AF5D0028F477 /* StringMatcher.swift */; };
 		3078FD6A1D74B3FE0028F477 /* CommonSubstrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3078FD691D74B3FE0028F477 /* CommonSubstrings.swift */; };
+		308B74501D75EFE800FC5C2D /* StringProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308B744F1D75EFE800FC5C2D /* StringProcessor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +38,7 @@
 		3078FD651D7495D20028F477 /* String_Fuzzywuzzy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String_Fuzzywuzzy.swift; sourceTree = "<group>"; };
 		3078FD671D74AF5D0028F477 /* StringMatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringMatcher.swift; sourceTree = "<group>"; };
 		3078FD691D74B3FE0028F477 /* CommonSubstrings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonSubstrings.swift; sourceTree = "<group>"; };
+		308B744F1D75EFE800FC5C2D /* StringProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringProcessor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 				3078FD651D7495D20028F477 /* String_Fuzzywuzzy.swift */,
 				3078FD671D74AF5D0028F477 /* StringMatcher.swift */,
 				3078FD691D74B3FE0028F477 /* CommonSubstrings.swift */,
+				308B744F1D75EFE800FC5C2D /* StringProcessor.swift */,
 			);
 			path = Fuzzywuzzy_swift;
 			sourceTree = "<group>";
@@ -207,6 +210,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3078FD641D7495B80028F477 /* LevenshteinDistance.swift in Sources */,
+				308B74501D75EFE800FC5C2D /* StringProcessor.swift in Sources */,
 				3078FD661D7495D20028F477 /* String_Fuzzywuzzy.swift in Sources */,
 				3078FD6A1D74B3FE0028F477 /* CommonSubstrings.swift in Sources */,
 				3078FD681D74AF5D0028F477 /* StringMatcher.swift in Sources */,
@@ -397,6 +401,7 @@
 				3078FD5F1D74959A0028F477 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3078FD601D74959A0028F477 /* Build configuration list for PBXNativeTarget "Fuzzywuzzy_swiftTests" */ = {
 			isa = XCConfigurationList;
@@ -405,6 +410,7 @@
 				3078FD621D74959A0028F477 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

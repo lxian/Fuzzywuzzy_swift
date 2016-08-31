@@ -53,4 +53,32 @@ public extension String {
         }
         return Int((scores.maxElement() ?? 0) * 100)
     }
+    
+    static private func _fuzzProcessAndSort(str: String, fullProcess: Bool = true) -> String {
+        var str = str
+        if fullProcess {
+            str = StringProcessor.process(str)
+        }
+        let tokens = Array(str.componentsSeparatedByString(" "))
+        return tokens.sort().joinWithSeparator(" ").stringByTrimmingCharactersInSet(NSCharacterSet.init(charactersInString: ""))
+    }
+    
+    static private func _fuzzTokenSort(str1 str1: String, str2: String, partial: Bool = true, fullProcess: Bool = true) -> Int {
+        let sorted1 = _fuzzProcessAndSort(str1, fullProcess: fullProcess)
+        let sorted2 = _fuzzProcessAndSort(str2, fullProcess: fullProcess)
+        
+        if partial {
+            return fuzzPartialRatio(str1: sorted1, str2: sorted2)
+        } else {
+            return fuzzRatio(str1: sorted1, str2: sorted2)
+        }
+    }
+    
+    static public func fuzzTokenSortRatio(str1 str1: String, str2: String, fullProcess: Bool = true) -> Int {
+        return _fuzzTokenSort(str1: str1, str2: str2, partial: false, fullProcess: fullProcess)
+    }
+    
+    static public func fuzzPartialTokenSortRatio(str1 str1: String, str2: String, fullProcess: Bool = true) -> Int {
+        return _fuzzTokenSort(str1: str1, str2: str2, partial: true, fullProcess: fullProcess)
+    }
 }
