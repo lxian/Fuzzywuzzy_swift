@@ -1,9 +1,9 @@
 # Fuzzywuzzy_swift (WIP)
-Fuzzy String Matching in Swift using Levenshtein Distance. Inspired by the python fuzzywuzzy library https://github.com/seatgeek/fuzzywuzzy
+Fuzzy String Matching in Swift using Levenshtein Distance. Ported from the python fuzzywuzzy library https://github.com/seatgeek/fuzzywuzzy
 
 It has no external dependancies. And thanks to Swift String, it can support multi-lingual.
 
-**WARNING: This library is still WORKING IN PROGRESS.**
+**WARNING: This project is still WORKING IN PROGRESS.**
 
 # Installation
 ### Carthage
