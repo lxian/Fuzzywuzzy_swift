@@ -81,4 +81,52 @@ public extension String {
     static public func fuzzPartialTokenSortRatio(str1 str1: String, str2: String, fullProcess: Bool = true) -> Int {
         return _fuzzTokenSort(str1: str1, str2: str2, partial: true, fullProcess: fullProcess)
     }
+    
+    static func _token_set(str1 str1: String, str2: String, partial: Bool = true, fullProcess: Bool = true) -> Int {
+        var p1 = str1
+        var p2 = str2
+        if fullProcess {
+            p1 = StringProcessor.process(p1)
+            p2 = StringProcessor.process(p2)
+        }
+        
+        let tokens1 = Set(p1.componentsSeparatedByString(" "))
+        let tokens2 = Set(p2.componentsSeparatedByString(" "))
+        
+        let intersection = tokens1.intersect(tokens2)
+        let diff1to2     = tokens1.subtract(tokens2)
+        let diff2to1     = tokens2.subtract(tokens1)
+        
+        var sorted_sect   = intersection.sort().joinWithSeparator(" ")
+        let sorted_1to2 = diff1to2.sort().joinWithSeparator(" ")
+        let sorted_2to1 = diff2to1.sort().joinWithSeparator(" ")
+        
+        var combined_1to2 = sorted_sect + " " + sorted_1to2
+        var combined_2to1 = sorted_sect + " " + sorted_2to1
+        
+        sorted_sect   = sorted_sect.stringByTrimmingCharactersInSet(NSCharacterSet(charactersInString: " "))
+        combined_1to2 = combined_1to2.stringByTrimmingCharactersInSet(NSCharacterSet(charactersInString: " "))
+        combined_2to1 = combined_2to1.stringByTrimmingCharactersInSet(NSCharacterSet(charactersInString: " "))
+        
+        let pariwise = [(sorted_sect, combined_1to2),
+                        (sorted_sect, combined_2to1), 
+                        (combined_1to2, combined_2to1)]
+        let ratios = pariwise.map { (str1, str2) -> Int in
+            if partial {
+                return String.fuzzPartialRatio(str1: str1, str2: str2)
+            } else {
+                return String.fuzzRatio(str1: str1, str2: str2)
+            }
+        }
+        
+        return ratios.maxElement()!
+    }
+    
+    static func fuzzTokenSetRatio(str1 str1: String, str2: String, fullProcess: Bool = true) -> Int {
+        return _token_set(str1: str1, str2: str2, partial: false, fullProcess: fullProcess)
+    }
+    
+    static func fuzzPartialTokenSetRatio(str1 str1: String, str2: String, fullProcess: Bool = true) -> Int {
+        return _token_set(str1: str1, str2: str2, partial: true, fullProcess: fullProcess)
+    }
 }
