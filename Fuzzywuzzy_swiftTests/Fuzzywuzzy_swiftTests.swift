@@ -21,12 +21,22 @@ class Fuzzywuzzy_swiftTests: XCTestCase {
         super.tearDown()
     }
     
+    func testTokenSetRatio() {
+        let strPairs = [("some", ""), ("", "some"), ("", ""), ("fuzzy fuzzy wuzzy was a bear", "wuzzy fuzzy was a bear"), ("fuzzy$*#&)$#(wuzzy*@()#*()!<><>was a bear", "wuzzy wuzzy fuzzy was a bear")]
+        for (str1, str2) in strPairs {
+            print("STR1: \(str1)")
+            print("STR2: \(str2)")
+            print("TOKEN SET RATIO: \(String.fuzzTokenSetRatio(str1: str1, str2: str2))")
+            print("-----------------")
+        }
+    }
+    
     func testTokenSortRatio() {
         let strPairs = [("some", ""), ("", "some"), ("", ""), ("fuzzy wuzzy was a bear", "wuzzy fuzzy was a bear"), ("fuzzy$*#&)$#(wuzzy*@()#*()!<><>was a bear", "wuzzy fuzzy was a bear")]
         for (str1, str2) in strPairs {
             print("STR1: \(str1)")
             print("STR2: \(str2)")
-            print("TOKEN RATIO: \(String.fuzzTokenSortRatio(str1: str1, str2: str2))")
+            print("TOKEN SORT RATIO: \(String.fuzzTokenSortRatio(str1: str1, str2: str2))")
             print("-----------------")
         }
     }
