@@ -1,9 +1,7 @@
-# Fuzzywuzzy_swift (WIP)
+# Fuzzywuzzy_swift
 Fuzzy String Matching in Swift using Levenshtein Distance. Ported from the python fuzzywuzzy library https://github.com/seatgeek/fuzzywuzzy
 
-It has no external dependancies. And thanks to Swift String, it can support multi-lingual.
-
-**WARNING: This project is still WORKING IN PROGRESS.**
+It has no external dependancies. And thanks to Swift String, it can support multi-language.
 
 # Installation
 ### Carthage
@@ -44,3 +42,11 @@ set fullProcess to false to remove this pre-processing
 ```swift
 String.fuzzTokenSortRatio(str1: "fuzzy+wuzzy(was) a bear", str2: "wuzzy fuzzy was a bear", fullProcess: false) // => 77
 ```
+### Token Set Ratio
+Similiar to token sort ratio while it put tokens into a set trying to remove duplicated tokens.
+```swift
+String.fuzzTokenSortRatio(str1: "fuzzy was a bear", str2: "fuzzy fuzzy was a bear") // => 84
+
+String.fuzzTokenSetRatio(str1: "fuzzy was a bear", str2: "fuzzy fuzzy was a bear") // => 100
+```
+
