@@ -58,8 +58,8 @@ class Fuzzywuzzy_swiftTests: XCTestCase {
             print("STR1: \(str1)")
             print("STR2: \(str2)")
             for pair in pairs {
-                print("\(str1.substringWithRange(pair.str1SubRange))")
-                print("\(str2.substringWithRange(pair.str2SubRange))")
+                print("\(str1.substring(with: pair.str1SubRange))")
+                print("\(str2.substring(with: pair.str2SubRange))")
                 print("")
             }
             print("-----------------")
