@@ -35,14 +35,17 @@ public extension String {
             if pair.len * 5 < shorter.characters.count {
                 return 0
             }
-            let sub2RemLen = pair.str2SubRange.lowerBound.distance(to: longer.endIndex)
+            //str2.distance(from: pair.str2SubRange.lowerBound, to: longer.endIndex)
+            let sub2RemLen = longer.distance(from: pair.str2SubRange.lowerBound, to: longer.endIndex)
             var longSubStart = pair.str2SubRange.lowerBound
             if sub2RemLen < shorter.characters.count {
-                longSubStart = longSubStart.advanced(by: sub2RemLen - shorter.characters.count)
+                longSubStart = shorter.index(longSubStart, offsetBy: sub2RemLen - shorter.characters.count)
+                //longSubStart = longSubStart.advanced(by: sub2RemLen - shorter.characters.count)
             }
-            let longSubEnd = longSubStart.advanced(by: shorter.characters.count-1)
+            let longSubEnd = longer.index(longSubStart, offsetBy: shorter.characters.count - 1)
+            //let longSubEnd = longSubStart.advanced(by: shorter.characters.count-1)
             let closedRange: Range = longSubStart..<longSubEnd
-            let longSubStr = longer.substring(with: closedRange)
+            let longSubStr = String(longer[closedRange])
             let r = StringMatcher(str1: shorter, str2: longSubStr).fuzzRatio()
             if r > 0.995 { /// magic number appears in original python code
                 return 1
