@@ -39,7 +39,7 @@ public extension String {
             let sub2RemLen = longer.distance(from: pair.str2SubRange.lowerBound, to: longer.endIndex)
             var longSubStart = pair.str2SubRange.lowerBound
             if sub2RemLen < shorter.characters.count {
-                longSubStart = shorter.index(longSubStart, offsetBy: sub2RemLen - shorter.characters.count)
+                longSubStart = longer.index(longSubStart, offsetBy: sub2RemLen - shorter.characters.count)
                 //longSubStart = longSubStart.advanced(by: sub2RemLen - shorter.characters.count)
             }
             let longSubEnd = longer.index(longSubStart, offsetBy: shorter.characters.count - 1)
