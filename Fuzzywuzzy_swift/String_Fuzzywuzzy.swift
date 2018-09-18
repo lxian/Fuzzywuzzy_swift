@@ -19,7 +19,7 @@ public extension String {
     static public func fuzzPartialRatio(str1: String, str2: String) -> Int {
         let shorter: String
         let longer: String
-        if str1.characters.count < str2.characters.count {
+        if str1.count < str2.count {
             shorter = str1
             longer = str2
         } else {
@@ -32,7 +32,7 @@ public extension String {
 
         let scores = commonPairs.map { (pair) -> Float in
             /// filter out pairs that are too short ( < 20% of the lenght of the shoter string )
-            if pair.len * 5 < shorter.characters.count {
+            if pair.len * 5 < shorter.count {
                 return 0
             }
             //str2.distance(from: pair.str2SubRange.lowerBound, to: longer.endIndex)

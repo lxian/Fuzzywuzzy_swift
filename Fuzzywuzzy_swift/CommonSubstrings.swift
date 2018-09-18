@@ -18,8 +18,8 @@ class CommonSubstrings: NSObject {
     /// get all pairs of common substrings
     class func pairs(str1: String, str2: String) -> [CommonSubstringPair] {
         /// convert String to array of Characters
-        let charArr1 = Array(str1.characters)
-        let charArr2 = Array(str2.characters)
+        let charArr1 = Array(str1)
+        let charArr2 = Array(str2)
 
         if charArr1.count == 0 || charArr2.count == 0 {
             return []
@@ -49,8 +49,9 @@ class CommonSubstrings: NSObject {
                             len += 1
                     }
 
-                    let sub1Range = Range((str1.index(str1.startIndex, offsetBy: i-1))..<str1.index(str1.startIndex, offsetBy: i-1+len-1))
-                    let sub2Range = Range((str2.index(str2.startIndex, offsetBy: j-1))..<str2.index(str2.startIndex, offsetBy: j-1+len-1))
+                    guard let sub1Range = Range(NSRange(location: i-1, length: i-1+len-1), in: str1) else { return [] }
+                    guard let sub2Range = Range(NSRange(location: i-1, length: j-1+len-1), in: str2) else { return [] }
+                    
                     pairs.append(CommonSubstringPair.init(str1SubRange: sub1Range, str2SubRange: sub2Range, len: len))
                 }
             }
