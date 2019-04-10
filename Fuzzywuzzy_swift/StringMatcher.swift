@@ -22,7 +22,7 @@ class StringMatcher: NSObject {
     }
 
     func fuzzRatio() -> Float {
-        let lenSum = (str1.characters.count + str2.characters.count)
+        let lenSum = (str1.count + str2.count)
         if lenSum == 0 { return 1 }
         return Float(lenSum - levenshteinDistance) / Float(lenSum)
     }
