@@ -10,13 +10,13 @@ import UIKit
 
 public extension String {
     /// Basic Scoring Functions
-    static public func fuzzRatio(str1: String, str2: String) -> Int {
+    static func fuzzRatio(str1: String, str2: String) -> Int {
         let m = StringMatcher(str1: str1, str2: str2)
         return Int(m.fuzzRatio() * 100)
     }
 
     /// trys to match the shorter string with the most common substring of the longer one
-    static public func fuzzPartialRatio(str1: String, str2: String) -> Int {
+    static func fuzzPartialRatio(str1: String, str2: String) -> Int {
         let shorter: String
         let longer: String
         if str1.count < str2.count {
@@ -38,11 +38,11 @@ public extension String {
             //str2.distance(from: pair.str2SubRange.lowerBound, to: longer.endIndex)
             let sub2RemLen = longer.distance(from: pair.str2SubRange.lowerBound, to: longer.endIndex)
             var longSubStart = pair.str2SubRange.lowerBound
-            if sub2RemLen < shorter.characters.count {
-                longSubStart = longer.index(longSubStart, offsetBy: sub2RemLen - shorter.characters.count)
+            if sub2RemLen < shorter.count {
+                longSubStart = longer.index(longSubStart, offsetBy: sub2RemLen - shorter.count)
                 //longSubStart = longSubStart.advanced(by: sub2RemLen - shorter.characters.count)
             }
-            let longSubEnd = longer.index(longSubStart, offsetBy: shorter.characters.count - 1)
+            let longSubEnd = longer.index(longSubStart, offsetBy: shorter.count - 1)
             //let longSubEnd = longSubStart.advanced(by: shorter.characters.count-1)
             let closedRange: Range = longSubStart..<longSubEnd
             let longSubStr = String(longer[closedRange])
@@ -76,11 +76,11 @@ public extension String {
         }
     }
 
-    static public func fuzzTokenSortRatio(str1: String, str2: String, fullProcess: Bool = true) -> Int {
+    static func fuzzTokenSortRatio(str1: String, str2: String, fullProcess: Bool = true) -> Int {
         return _fuzzTokenSort(str1: str1, str2: str2, partial: false, fullProcess: fullProcess)
     }
 
-    static public func fuzzPartialTokenSortRatio(str1: String, str2: String, fullProcess: Bool = true) -> Int {
+    static func fuzzPartialTokenSortRatio(str1: String, str2: String, fullProcess: Bool = true) -> Int {
         return _fuzzTokenSort(str1: str1, str2: str2, partial: true, fullProcess: fullProcess)
     }
 
